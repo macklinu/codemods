@@ -1,3 +1,1 @@
-const jscodeshiftTester = require('./jscodeshiftTester')
-
-module.exports = { jscodeshiftTester }
+export * from './jscodeshiftTester'

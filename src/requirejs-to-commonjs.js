@@ -1,5 +1,5 @@
 const requireJsToCommonJs = (file, { jscodeshift: j }) => {
-  const toModuleExportsExpression = right => {
+  const toModuleExportsExpression = (right) => {
     const left = j.memberExpression(
       j.identifier('module'),
       j.identifier('exports')
@@ -8,11 +8,11 @@ const requireJsToCommonJs = (file, { jscodeshift: j }) => {
     return j.expressionStatement(j.assignmentExpression(operator, left, right))
   }
 
-  const requireStatement = value =>
+  const requireStatement = (value) =>
     j.callExpression(j.identifier('require'), [j.literal(value)])
 
   const exportizeFunctionBody = (body = []) =>
-    body.map(node => {
+    body.map((node) => {
       return node.type === 'ReturnStatement'
         ? toModuleExportsExpression(node.argument)
         : node
@@ -26,7 +26,7 @@ const requireJsToCommonJs = (file, { jscodeshift: j }) => {
       ),
     ])
 
-  const isFunctionExpression = node =>
+  const isFunctionExpression = (node) =>
     node.type === 'FunctionExpression' ||
     node.type === 'ArrowFunctionExpression'
 
@@ -34,7 +34,7 @@ const requireJsToCommonJs = (file, { jscodeshift: j }) => {
     .find(j.CallExpression)
     .filter(({ node }) => node.callee.name === 'define')
     .at(0)
-    .forEach(path => {
+    .forEach((path) => {
       // TODO find a better way to detect global define() functions
       const isDefineAtGlobalScope = path.parent.parent.node.type === 'Program'
       if (!isDefineAtGlobalScope) {
@@ -61,8 +61,8 @@ const requireJsToCommonJs = (file, { jscodeshift: j }) => {
           return
         }
 
-        const requireNames = first.elements.map(element => element.value)
-        const variableNames = second.params.map(param => param.name)
+        const requireNames = first.elements.map((element) => element.value)
+        const variableNames = second.params.map((param) => param.name)
 
         const requireStatements = variableNames
           .map((name, i) => {
@@ -87,4 +87,4 @@ const requireJsToCommonJs = (file, { jscodeshift: j }) => {
     .toSource()
 }
 
-module.exports = requireJsToCommonJs
+export default requireJsToCommonJs

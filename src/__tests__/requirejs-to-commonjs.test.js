@@ -1,5 +1,5 @@
-const { jscodeshiftTester } = require('./helpers')
-const requireJsToCommonJs = require('../requirejs-to-commonjs')
+import requireJsToCommonJs from '../requirejs-to-commonjs'
+import { jscodeshiftTester } from './helpers'
 
 jscodeshiftTester({
   module: requireJsToCommonJs,

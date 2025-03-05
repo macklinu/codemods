@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`requireJsToCommonJs handles arrow function callback: input 1`] = `
+exports[`requireJsToCommonJs > handles arrow function callback > input 1`] = `
 define(['jQuery', 'backbone', 'underscore'], ($, Backbone, _) => {
   var CONSTANT = 'a'
 
@@ -11,7 +11,7 @@ define(['jQuery', 'backbone', 'underscore'], ($, Backbone, _) => {
 
 `;
 
-exports[`requireJsToCommonJs handles arrow function callback: output 1`] = `
+exports[`requireJsToCommonJs > handles arrow function callback > output 1`] = `
 var $ = require('jQuery')
 var Backbone = require('backbone')
 var _ = require('underscore')
@@ -23,8 +23,8 @@ module.exports = Backbone.View.extend({})
 
 `;
 
-exports[`requireJsToCommonJs handles define with two arguments: input 1`] = `
-define(['jQuery', 'backbone', 'underscore'], function($, Backbone, _) {
+exports[`requireJsToCommonJs > handles define with two arguments > input 1`] = `
+define(['jQuery', 'backbone', 'underscore'], function ($, Backbone, _) {
   var CONSTANT = 'a'
 
   function somefn() {}
@@ -34,7 +34,7 @@ define(['jQuery', 'backbone', 'underscore'], function($, Backbone, _) {
 
 `;
 
-exports[`requireJsToCommonJs handles define with two arguments: output 1`] = `
+exports[`requireJsToCommonJs > handles define with two arguments > output 1`] = `
 var $ = require('jQuery')
 var Backbone = require('backbone')
 var _ = require('underscore')
@@ -46,8 +46,8 @@ module.exports = Backbone.View.extend({})
 
 `;
 
-exports[`requireJsToCommonJs handles require param in array of modules: input 1`] = `
-define(['require', 'backbone', 'underscore'], function(require, Backbone, _) {
+exports[`requireJsToCommonJs > handles require param in array of modules > input 1`] = `
+define(['require', 'backbone', 'underscore'], function (require, Backbone, _) {
   const someOtherModule = require('some/other/module')
 
   return Backbone.View.extend(_.extend({}))
@@ -55,7 +55,7 @@ define(['require', 'backbone', 'underscore'], function(require, Backbone, _) {
 
 `;
 
-exports[`requireJsToCommonJs handles require param in array of modules: output 1`] = `
+exports[`requireJsToCommonJs > handles require param in array of modules > output 1`] = `
 var Backbone = require('backbone')
 var _ = require('underscore')
 const someOtherModule = require('some/other/module')
@@ -64,46 +64,46 @@ module.exports = Backbone.View.extend(_.extend({}))
 
 `;
 
-exports[`requireJsToCommonJs ignores code without define(): input 1`] = `
+exports[`requireJsToCommonJs > ignores code without define() > input 1`] = `
 var a
 var b
 document.hasFocus()
 
 `;
 
-exports[`requireJsToCommonJs ignores code without define(): output 1`] = `
+exports[`requireJsToCommonJs > ignores code without define() > output 1`] = `
 var a
 var b
 document.hasFocus()
 
 `;
 
-exports[`requireJsToCommonJs ignores define with no arguments: input 1`] = `
+exports[`requireJsToCommonJs > ignores define with no arguments > input 1`] = `
 define()
 
 `;
 
-exports[`requireJsToCommonJs ignores define with no arguments: output 1`] = `
+exports[`requireJsToCommonJs > ignores define with no arguments > output 1`] = `
 define()
 
 `;
 
-exports[`requireJsToCommonJs ignores non-global define: input 1`] = `
+exports[`requireJsToCommonJs > ignores non-global define > input 1`] = `
 function something() {
   return define({ a: 1 })
 }
 
 `;
 
-exports[`requireJsToCommonJs ignores non-global define: output 1`] = `
+exports[`requireJsToCommonJs > ignores non-global define > output 1`] = `
 function something() {
   return define({ a: 1 })
 }
 
 `;
 
-exports[`requireJsToCommonJs replaces arrow-function define with module.exports: input 1`] = `
-define(require => {
+exports[`requireJsToCommonJs > replaces arrow-function define with module.exports > input 1`] = `
+define((require) => {
   var a = require('a')
   var b = require('b')
 
@@ -112,7 +112,7 @@ define(require => {
 
 `;
 
-exports[`requireJsToCommonJs replaces arrow-function define with module.exports: output 1`] = `
+exports[`requireJsToCommonJs > replaces arrow-function define with module.exports > output 1`] = `
 var a = require('a')
 var b = require('b')
 
@@ -120,8 +120,8 @@ module.exports = b.doSomethingWith(a)
 
 `;
 
-exports[`requireJsToCommonJs replaces define with module.exports: input 1`] = `
-define(function(require) {
+exports[`requireJsToCommonJs > replaces define with module.exports > input 1`] = `
+define(function (require) {
   var a = require('a')
   var b = require('b')
 
@@ -130,7 +130,7 @@ define(function(require) {
 
 `;
 
-exports[`requireJsToCommonJs replaces define with module.exports: output 1`] = `
+exports[`requireJsToCommonJs > replaces define with module.exports > output 1`] = `
 var a = require('a')
 var b = require('b')
 
@@ -138,7 +138,7 @@ module.exports = b.doSomethingWith(a)
 
 `;
 
-exports[`requireJsToCommonJs replaces function that returns object with module.exports: input 1`] = `
+exports[`requireJsToCommonJs > replaces function that returns object with module.exports > input 1`] = `
 define(() => ({
   RESOLVED: 'RESOLVED',
   IGNORED: 'IGNORED',
@@ -147,7 +147,7 @@ define(() => ({
 
 `;
 
-exports[`requireJsToCommonJs replaces function that returns object with module.exports: output 1`] = `
+exports[`requireJsToCommonJs > replaces function that returns object with module.exports > output 1`] = `
 module.exports = {
   RESOLVED: 'RESOLVED',
   IGNORED: 'IGNORED',
@@ -156,7 +156,7 @@ module.exports = {
 
 `;
 
-exports[`requireJsToCommonJs replaces object with module.exports: input 1`] = `
+exports[`requireJsToCommonJs > replaces object with module.exports > input 1`] = `
 define({
   a: 1,
   b: 2,
@@ -165,7 +165,7 @@ define({
 
 `;
 
-exports[`requireJsToCommonJs replaces object with module.exports: output 1`] = `
+exports[`requireJsToCommonJs > replaces object with module.exports > output 1`] = `
 module.exports = {
   a: 1,
   b: 2,

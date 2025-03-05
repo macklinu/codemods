@@ -2,21 +2,22 @@
   "name": "@macklinu/codemods",
   "description": "A collection of JavaScript codemod scripts for easier code migration",
   "version": "0.0.0-not-published",
-  "main": "index.js",
+  "packageManager": "bun@1.2.3",
+  "type": "module",
   "license": "MIT",
   "engines": {
-    "node": ">=8"
+    "node": ">=22"
   },
   "scripts": {
-    "test": "jest"
+    "lint": "eslint",
+    "test": "vitest"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-macklinu": "^1.4.0",
-    "eslint-plugin-jest": "^22.4.1",
-    "jest": "^24.7.1",
-    "jest-runner-eslint": "^0.7.3",
+    "@macklinu/eslint-config": "^0.2.0",
+    "@macklinu/prettier-config": "^0.0.0",
+    "eslint": "^9.21.0",
     "jscodeshift": "^0.6.3",
-    "prettier": "^1.17.0"
+    "prettier": "^3.5.3",
+    "vitest": "^3.0.7"
   }
 }

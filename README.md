@@ -1,13 +1,10 @@
 # @macklinu/codemods
 
-> A collection of JavaScript codemod scripts for easier code migration
-
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Build Status](https://travis-ci.org/macklinu/codemods.svg?branch=master)](https://travis-ci.org/macklinu/codemods)
+> A collection of JavaScript and TypeScript codemod scripts for easier code migration
 
 ## Scripts
 
-All scripts should be executed with Node >=8.
+All scripts should be executed with Node >=22.
 
 ### `requirejs-to-commonjs`
 
@@ -23,13 +20,13 @@ npx jscodeshift <files-or-glob> -t https://raw.githubusercontent.com/macklinu/co
 
 ## Development
 
-### `yarn test`
+### `bun run test`
 
-Runs the [Jest](https://facebook.github.io/jest/) test suite. Tip: run
-`yarn test --watch` for interactive watch mode during development.
+Runs the [Vitest](https://vitest.dev/) test suite.
 
-Jest also includes an [ESLint](https://eslint.org/) runner, so running
-`yarn test` will lint and test all source files.
+### `bun run lint`
+
+Runs [ESLint](https://eslint.org/).
 
 ## Contributing
 
